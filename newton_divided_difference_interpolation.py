@@ -5,14 +5,22 @@ import sys
 def newton_interpolation(x_values:list,y_values:list,x:float):
 	nor = len(x_values) #nor - number of rows
 	#DT - Difference Table
-	DT = np.empty((nor,nor),dtype=np.float64)
+	DT = np.zeros((nor,nor),dtype=np.float64)
+
+
+	###############[calculate the kth divided difference]###############
 	for i in range(0,nor):
 		DT[i,i] = y_values[i]
 	for m in range(1,nor):
 		for j in range(0,nor-m):
 			DT[j,j+m] = (DT[j+1,j+m] - DT[j,j+m-1])/(x_values[j+m]-x_values[j])
 			
-	print(DT)
+	#print(DT) #for debugging purposes only.
+		
+
+	##############[evaluate the interpolating polynomial at x]##########
+			
+	return 0
 
 if __name__ == '__main__':
 	help_message = f"""
@@ -28,6 +36,5 @@ if __name__ == '__main__':
 	f = data_reader.InterpolationData(sys.argv[1])	
 	data = f.get_data_in_two_lists() 
 	x = float(sys.argv[2])		
-	
-	
-	
+
+	print(newton_interpolation(data[0],data[1],x))	
