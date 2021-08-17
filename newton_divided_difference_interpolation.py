@@ -4,10 +4,14 @@ import sys
 
 def newton_interpolation(x_values:list,y_values:list,x:float):
 	nor = len(x_values) #nor - number of rows
+
 	#DT - Difference Table
+	#DT[i,i] = f[x_i]
+	#DT[i,j] = f[x_i,x_(i+1),...,x_j] for j > i
+	
 	DT = np.zeros((nor,nor),dtype=np.float64)
 
-
+	
 	###############[calculate the kth divided difference]###############
 	for i in range(0,nor):
 		DT[i,i] = y_values[i]
@@ -19,8 +23,17 @@ def newton_interpolation(x_values:list,y_values:list,x:float):
 		
 
 	##############[evaluate the interpolating polynomial at x]##########
-			
-	return 0
+	p = np.zeros(nor,dtype=np.float64)
+	p[0] = y_values[0]
+	for k in range(1,nor):
+		p[k] = p[k-1]
+		g = 1
+		for i in range(0,k):
+			g *= (x - x_values[i])
+		g *= DT[0,k]
+		p[k] += g 
+	
+	return p[nor-1] 
 
 if __name__ == '__main__':
 	help_message = f"""
