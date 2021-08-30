@@ -13,6 +13,7 @@ f = lambda x,y:0.1*sqrt(y) + 0.4*x*x
 f = lambda x,y:-2*x-y
 '''
 
+
 f = eval(input("enter the function in lambda notation: "))
 r = float(input("evaluate the unknown function at: "))
 inital_condition = eval(input("enter the inital condition in tuple notation i.e. (x0,y0): "))
@@ -44,6 +45,8 @@ else:
 	exit()
 ################################################
 
+
+print("\n\n")
 numerical_result = numerical_method(f,h,inital_condition[0],inital_condition[1],r,debug_mode)
 
 print(f"numerical_result: {numerical_result}\n")
