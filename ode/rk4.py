@@ -18,4 +18,5 @@ def rk4(f,h:float,x0:float,y0:float,x:float,debug_mode:bool=False)->float:
 		y0 += (1/6)*(k1 + 2*k2 + 2*k3 + k4)
 		if debug_mode:
 			print(x0,y0)
+		x0 += h
 	return y0

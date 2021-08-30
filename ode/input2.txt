@@ -4,4 +4,4 @@ lambda x,y:-2*x-y
 0.1
 rk4
 lambda x:-3*exp(-x)-2*x+2
-F
+T
