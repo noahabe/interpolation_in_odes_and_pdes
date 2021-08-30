@@ -38,7 +38,7 @@ else:
 debug_mode = input("debug mode [T|F]: ")
 if debug_mode.upper() == 'T':
 	debug_mode = True
-elif debug_mode.lower() == 'F':
+elif debug_mode.upper() == 'F':
 	debug_mode = False
 else:
 	print("incorrect debug mode inserted")
