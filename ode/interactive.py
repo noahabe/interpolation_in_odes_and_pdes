@@ -1,5 +1,6 @@
 from euler import euler_s_method
 from rk4 import rk4
+from rkf import rkf
 
 from math import exp
 from math import sqrt
@@ -20,11 +21,16 @@ inital_condition = eval(input("enter the inital condition in tuple notation i.e.
 h = float(input("enter the step-size: "))
 
 ###############[method_of_solving]##############
-method_of_solving = input("enter the method of solving [euler|rk4]: ")
+method_of_solving = input("enter the method of solving [euler|rk4|rkf]: ")
 if method_of_solving == "euler":
 	numerical_method = euler_s_method
 elif method_of_solving == "rk4":
 	numerical_method = rk4
+elif method_of_solving == "rkf":
+	numerical_method = rkf
+else:
+	print("unknown numerical method or not implemented yet")
+	exit()
 
 ###################[analytic_function]##########
 analytic_function = input("enter the analytic solution to calculate the error[0 for none]: ")
