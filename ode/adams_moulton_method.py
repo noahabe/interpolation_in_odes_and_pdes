@@ -1,0 +1,5 @@
+'''
+Implements Adams-Moulton Method
+'''
+
+
